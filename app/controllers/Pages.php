@@ -6,7 +6,8 @@
 
         public function index(){
             $data = [
-                'title' => 'RemoteJobs'
+                'title' => 'RemoteJobs',
+                'description' => 'Find fully remote jobs online with many benefits'
             ];
             $this->view('pages/index', $data);
         }
