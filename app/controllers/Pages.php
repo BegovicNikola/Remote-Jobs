@@ -6,7 +6,7 @@
 
         public function index(){
             $data = [
-                'title' => 'MVCFramework'
+                'title' => 'RemoteJobs'
             ];
             $this->view('pages/index', $data);
         }
