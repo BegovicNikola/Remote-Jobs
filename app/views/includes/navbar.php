@@ -6,8 +6,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo URLROOT; ?>">Posts</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo URLROOT; ?>">Offers</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a>
@@ -15,10 +15,10 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
                 </li>
             </ul>
         </div>
