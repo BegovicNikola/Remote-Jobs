@@ -57,7 +57,7 @@
 
                     // Register User
                     if($this->userModel->register($data)){
-                        
+                        redirect('users/login');
                     }else{
                         die('Something went wrong!');
                     }
