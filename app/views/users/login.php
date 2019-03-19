@@ -3,6 +3,7 @@
         <div class="col-md-6 mx-auto">
             <div class="card card-body bg-light mt-5">
                 <h2>Login</h2>
+                <?php flashMessage('register_success'); ?>
                 <form action="<?php echo URLROOT; ?>/users/login" method="POST">
                     <div class="form-group">
                         <label for="email">Email: </label>
