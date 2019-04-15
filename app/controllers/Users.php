@@ -147,7 +147,7 @@
             $_SESSION['user_name'] = $user->name;
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_role'] = $user->role;
-            redirect('pages/index');
+            redirect('offers');
         }
 
         public function logout(){
@@ -157,14 +157,6 @@
             unset($_SESSION['user_role']);
             session_destroy();
             redirect('users/login');
-        }
-
-        public function isLoggedIn(){
-            if(isset($_SESSION['user_id'])){
-                return true;
-            }else{
-                return false;
-            }
         }
     }
     
