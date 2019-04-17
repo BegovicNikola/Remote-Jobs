@@ -22,4 +22,21 @@
 
             return $results;
         }
+
+        public function addOffer($data){
+            $this->db->query('INSERT INTO offers (user_id, title, description, company) VALUES(:user_id, :title, :description, :company)');
+
+            // Bind params and values
+            $this->db->bind(':user_id', $_SESSION['user_id']);
+            $this->db->bind(':title', $data['title']);
+            $this->db->bind(':description', $data['description']);
+            $this->db->bind(':company', $data['company']);
+
+            // Execute
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }

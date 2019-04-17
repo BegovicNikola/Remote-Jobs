@@ -9,7 +9,7 @@
         // Register user
         public function register($data){
             // Insert query
-            $this->db->query('INSERT INTO users(name, email, password, role) VALUES(:name, :email, :password, 1)');
+            $this->db->query('INSERT INTO users (name, email, password, role) VALUES(:name, :email, :password, 1)');
 
             // Bind params and values
             $this->db->bind(':name', $data['name']);

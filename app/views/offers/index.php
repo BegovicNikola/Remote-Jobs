@@ -6,14 +6,17 @@
             Post Offer
         </a>
     </div>
+    <div class="mt-3">
+        <?php flashMessage('offer_message'); ?>
+    </div>
     <?php foreach($data['offers'] as $offer): ?>
         <div class="card my-3">
             <div class="card-body">
                 <div class="card-title d-flex align-items-end">
                     <h3 class="mb-0"><?= $offer->title; ?></h3>
-                    <span>@</span>
-                    <span><?= $offer->company; ?></span>
-                    <a href="<?= URLROOT; ?>/offers/show/<?= $offer->o_id; ?>" class="ml-auto btn btn-dark btn-sm">
+                    <span class="ml-2">@</span>
+                    <span class="ml-2"><?= $offer->company; ?></span>
+                    <a href="<?= URLROOT; ?>/offers/job/<?= $offer->o_id; ?>" class="ml-auto btn btn-dark btn-sm">
                         <span class="fa fa-clone"></span>
                         <span class="font-weight-bold">View</span>
                     </a> 

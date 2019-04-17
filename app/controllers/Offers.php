@@ -5,7 +5,7 @@
             if(!isLoggedIn()){
                 redirect('users/login');
             }
-
+            
             $this->offerModel = $this->model('Offer');
         }
 
@@ -20,12 +20,50 @@
         }
 
         public function add(){
-            $data = [
-                'title' => '',
-                'description' => '',
-                'company' => ''
-            ];
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            $this->view('offers/add', $data);
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $data=[
+                    'title' => trim($_POST['title']),
+                    'description' => trim($_POST['description']),
+                    'company' => trim($_POST['company']),
+                    'title_error' => '',
+                    'description_error' => '',
+                    'company_error' => ''
+                ];
+                
+                if(empty($data['title'])){
+                    $data['title_error'] = 'Please enter the title';
+                }
+
+                if(empty($data['description'])){
+                    $data['description_error'] = 'Please enter the description';
+                }
+
+                if(empty($data['company'])){
+                    $data['company_error'] = 'Please enter the company';
+                }
+
+                if(empty($data['title_error']) && empty($data['description_error']) && empty($data['company_error'])){
+                   if($this->offerModel->addOffer($data)){
+                       flashMessage('offer_message', 'Offer successfuly added');
+                       redirect('offers');
+                   } else {
+                       die('Something went wrong');
+                   }
+                } else {
+                    $this->view('offers/add', $data);
+                }
+
+            } else {
+                $data = [
+                    'title' => '',
+                    'description' => '',
+                    'company' => ''
+                ];
+
+                $this->view('offers/add', $data);
+            }
         }
     }
