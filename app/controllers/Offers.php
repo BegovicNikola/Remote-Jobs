@@ -7,6 +7,7 @@
             }
             
             $this->offerModel = $this->model('Offer');
+            $this->userModel = $this->model('User');
         }
 
         public function index(){
@@ -65,5 +66,18 @@
 
                 $this->view('offers/add', $data);
             }
+        }
+
+        public function job($id){
+            $offer = $this->offerModel->getSingleOffer($id);
+            
+            $user = $this->userModel->findUserById($offer->user_id);
+
+            $data = [
+                'offer' => $offer,
+                'user' => $user
+            ];
+
+            $this->view('offers/job', $data);
         }
     }

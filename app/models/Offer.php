@@ -39,4 +39,13 @@
                 return false;
             }
         }
+
+        public function getSingleOffer($id){
+            $this->db->query('SELECT * FROM offers WHERE id = :id');
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+
+            return $row;
+        }
     }
