@@ -14,11 +14,16 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <?php if(isset($_SESSION['user_id'])) : ?>
+                <?php if(isLoggedIn()) : ?>
+                    <?php if(isAdmin()) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo URLROOT; ?>/admin">Admin</a>
+                        </li> 
+                    <?php endif; ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
                     </li>
-                <?php else: ?> 
+                <?php else: ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>
                     </li>

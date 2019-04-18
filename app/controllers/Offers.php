@@ -16,7 +16,7 @@
             $data = [
                 'offers' => $offers
             ];
-
+                
             $this->view('offers/index', $data);
         }
 

@@ -38,6 +38,14 @@
             }
         }
 
+        public function findAllUsers(){
+            $this->db->query('SELECT * FROM users');
+
+            $allUsers = $this->db->resultSet();
+
+            return $allUsers;
+        }
+
         // Find user by email
         public function findUserByEmail($email){
             $this->db->query('SELECT * FROM users WHERE email = :email');
