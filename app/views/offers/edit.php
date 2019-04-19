@@ -5,9 +5,9 @@
     </a>
     <div class="card bg-light">
         <div class="card-body">
-            <h2 class="card-title">Create Offer</h2>
+            <h2 class="card-title">Edit Offer</h2>
             <p class="card-text">Make a new job offer by entering title, description and company</p>
-            <form action="<?php echo URLROOT; ?>/offers/add" method="POST">
+            <form action="<?php echo URLROOT; ?>/offers/edit/<?= $data['id']; ?>" method="POST">
                 <div class="form-group">
                     <label for="title">Title: </label>
                     <input type="text" name="title" class="form-control <?php echo (!empty($data['title_error'])) ? 'is-invalid' : '';?>" value="<?php echo $data['title']; ?>">
