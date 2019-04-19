@@ -31,3 +31,11 @@
             return false;
         }
     }
+
+    function isAdmin(){
+        if($_SESSION['user_role'] == 2){
+            return true;
+        }else{
+            return false;
+        }
+    }

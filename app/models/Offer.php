@@ -23,6 +23,25 @@
             return $results;
         }
 
+        public function getSingleOffer($id){
+            $this->db->query('SELECT * FROM offers WHERE id = :id');
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+
+            return $row;
+        }
+
+        public function getOffersByUser($user_id){
+            $this->db->query('SELECT * FROM offers WHERE user_id = :user_id');
+            
+            $this->db->bind(':user_id', $user_id);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
         public function addOffer($data){
             $this->db->query('INSERT INTO offers (user_id, title, description, company) VALUES(:user_id, :title, :description, :company)');
 
@@ -40,12 +59,33 @@
             }
         }
 
-        public function getSingleOffer($id){
-            $this->db->query('SELECT * FROM offers WHERE id = :id');
+        public function updateOffer($data){
+            $this->db->query('UPDATE offers SET title = :title, description = :description, company = :company WHERE id = :id');
+
+            // Bind params and values
+            $this->db->bind(':id', $data['id']);
+            $this->db->bind(':title', $data['title']);
+            $this->db->bind(':description', $data['description']);
+            $this->db->bind(':company', $data['company']);
+
+            // Execute
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function deleteOffer($id){
+            $this->db->query('DELETE FROM offers WHERE id = :id');
+
             $this->db->bind(':id', $id);
 
-            $row = $this->db->single();
-
-            return $row;
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
         }
+
     }
