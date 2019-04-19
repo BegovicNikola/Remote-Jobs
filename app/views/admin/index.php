@@ -1,12 +1,20 @@
 <?php require APPROOT . '/views/includes/header.php'; ?>    
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div id="usersHolder" class="col-4">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div id="usersHolder" class="card-body">
                     <!-- Users Render -->
                 </div>
-                <div id="offersHolder" class="col-8">
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div id="offersHolder" class="card-body">
                     <!-- Offers Render -->
+                    <p class="card-text">
+                        No items to show<br/>
+                        Please select folder icon next to the user
+                    </p>
                 </div>
             </div>
         </div>

@@ -22,13 +22,15 @@ $(document).ready(() => {
 
     users.forEach(user => {
       html += `
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center border-bottom my-3">
           <h4 class="mb-0">${user.name}</h4>
-          <div>
+          <div class="d-flex align-items-center">
             <span class="fa fa-folder-open text-primary" data-id="${
               user.id
             }"></span>
-            <span class="fa fa-times-circle text-danger ml-1"></span>
+            <span class="fa fa-times-circle text-danger ml-3" data-id="${
+              user.id
+            }"></span>
           </div>
         </div>
       `;
@@ -41,9 +43,19 @@ $(document).ready(() => {
     );
   };
 
+  const deleteUser = id => {
+    $.ajax({
+      url: `${urlroot}offers/delete/${id}`,
+      method: "POST",
+      success: data => {
+        console.log(data);
+      }
+    });
+  };
+
   const getOffersByUser = id => {
     $.ajax({
-      url: `${urlroot}admin/offers?user=${id}`,
+      url: `${urlroot}admin/offers/${id}`,
       method: "GET",
       dataType: "json",
       success: data => {
@@ -60,16 +72,33 @@ $(document).ready(() => {
 
     offers.forEach(offer => {
       html += `
-      <div class="d-flex justify-content-between align-items-center">
-      <h4 class="mb-0">${offer.title}</h4>
-      <div>
-        <span class="fa fa-folder text-primary"></span>
-        <span class="fa fa-trash text-danger ml-1" data-id="${offer.id}"></span>
+      <div class="d-flex justify-content-between align-items-center border-bottom my-3">
+        <h4 class="mb-0">${offer.title}</h4>
+        <div class="d-flex align-items-center">
+          <a href="${urlroot}offers/job/${
+        offer.id
+      }"><span class="fa fa-folder text-primary"></span>
+          </a>
+          <span class="fa fa-trash text-danger ml-3" data-id="${
+            offer.id
+          }"></span>
+        </div>
       </div>
-    </div>
       `;
     });
 
     $("#offersHolder").html(html);
+
+    $(".fa-trash").click(event => deleteOffer(event.target.dataset.id));
+  };
+
+  const deleteOffer = id => {
+    $.ajax({
+      url: `${urlroot}offers/delete/${id}`,
+      method: "POST",
+      success: data => {
+        console.log(data);
+      }
+    });
   };
 });

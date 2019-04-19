@@ -26,12 +26,8 @@
             json($users);
         }
 
-        public function offers(){
-            // vraca json sa oferima usera po id-ju
-            // Check for string
-            $user_id = $_GET['user'];
-
-            $offers = $this->offerModel->getOffersByUser($user_id);
+        public function offers($id){
+            $offers = $this->offerModel->getOffersByUser($id);
 
             json($offers);
         }
