@@ -23,6 +23,16 @@
             return $results;
         }
 
+        public function getOffersByUser($user_id){
+            $this->db->query('SELECT * FROM offers WHERE user_id = :user_id');
+            
+            $this->db->bind(':user_id', $user_id);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
         public function addOffer($data){
             $this->db->query('INSERT INTO offers (user_id, title, description, company) VALUES(:user_id, :title, :description, :company)');
 
