@@ -21,7 +21,6 @@
                         <span class="font-weight-bold">View</span>
                     </a> 
                 </div>
-                <p class="card-text"><?= $offer->description; ?></p>
                 <div class="card-text d-flex justify-content-between">
                     <p>Posted by: <?= $offer->name; ?></p>
                 </div>

@@ -142,6 +142,10 @@
             }
         }
 
+        public function delete($id){
+            $this->userModel->deleteUser($id);
+        }
+
         public function createUserSession($user){
             $_SESSION['user_id'] = $user->id;
             $_SESSION['user_name'] = $user->name;

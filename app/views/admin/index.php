@@ -11,7 +11,7 @@
             <div class="card">
                 <div id="offersHolder" class="card-body">
                     <!-- Offers Render -->
-                    <p class="card-text">
+                    <p class="card-text text-center">
                         No items to show<br/>
                         Please select folder icon next to the user
                     </p>
