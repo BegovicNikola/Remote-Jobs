@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/includes/header.php'; ?>   
     <a href="<?= URLROOT; ?>/offers" class="btn btn-dark btn-block mb-3">
-        <span class="fa fa-backspace"></span>
+        <span class="fa fa-chevron-circle-left"></span>
         <span>Return to offers</span>
     </a>
     <div class="card bg-light">

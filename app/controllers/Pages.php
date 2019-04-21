@@ -11,7 +11,7 @@
 
             $data = [
                 'title' => 'RemoteJobs',
-                'description' => 'Find fully remote jobs online with many benefits'
+                'description' => 'Find remote jobs online'
             ];
 
             $this->view('pages/index', $data);
