@@ -1,5 +1,4 @@
 <?php
-    // JSON 
     function json($data){
         header('Content-Type: application/json');
         

@@ -18,11 +18,9 @@
         public function addPollResult($data){
             $this->db->query('INSERT INTO poll (user_id, liked) VALUES(:user_id, :liked)');
 
-            // Bind params and values
             $this->db->bind(':user_id', $_SESSION['user_id']);
             $this->db->bind(':liked', $data['liked']);
 
-            // Execute
             if($this->db->execute()){
                 return true;
             }else{

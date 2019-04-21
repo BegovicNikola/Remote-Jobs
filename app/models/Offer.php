@@ -7,7 +7,6 @@
         }
 
         public function getOffers(){
-            // Zasto ovde staviti alias
             $this->db->query('SELECT *,
                             offers.id as o_id,
                             users.id as u_id,
@@ -45,13 +44,11 @@
         public function addOffer($data){
             $this->db->query('INSERT INTO offers (user_id, title, description, company) VALUES(:user_id, :title, :description, :company)');
 
-            // Bind params and values
             $this->db->bind(':user_id', $_SESSION['user_id']);
             $this->db->bind(':title', $data['title']);
             $this->db->bind(':description', $data['description']);
             $this->db->bind(':company', $data['company']);
 
-            // Execute
             if($this->db->execute()){
                 return true;
             }else{
@@ -62,13 +59,11 @@
         public function updateOffer($data){
             $this->db->query('UPDATE offers SET title = :title, description = :description, company = :company WHERE id = :id');
 
-            // Bind params and values
             $this->db->bind(':id', $data['id']);
             $this->db->bind(':title', $data['title']);
             $this->db->bind(':description', $data['description']);
             $this->db->bind(':company', $data['company']);
 
-            // Execute
             if($this->db->execute()){
                 return true;
             }else{
