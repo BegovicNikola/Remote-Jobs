@@ -10,7 +10,7 @@
                     <a class="nav-link" href="<?php echo URLROOT; ?>/offers">Offers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a>
+                    <a class="nav-link" href="<?php echo URLROOT; ?>/polls">About</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
