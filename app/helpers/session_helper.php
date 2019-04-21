@@ -1,7 +1,6 @@
 <?php 
     session_start();
 
-    // Flash messages
     function flashMessage($name = '', $message = '', $class = 'alert alert-success'){
         if(!empty($name)){
             if(!empty($message) && empty($_SESSION[$name])){

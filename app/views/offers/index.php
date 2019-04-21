@@ -1,16 +1,18 @@
 <?php require APPROOT . '/views/includes/header.php'; ?>    
-    <div class="jumbotron text-center mb-0">
-        <h1 class="display-4">Available Offers</h1>
-        <a href="<?php echo URLROOT; ?>/offers/add" class="btn btn-dark">
-            <span class="fa fa-edit"></span>
-            Post Offer
-        </a>
+    <div class="jumbotron text-center mb-0 position-relative">
+        <div class="position-absolute d-flex flex-column align-items-center justify-content-center">
+            <h1 class="display-4">Available Offers</h1>
+            <a href="<?php echo URLROOT; ?>/offers/add" class="btn btn-dark">
+                <span class="fa fa-edit"></span>
+                Post Offer
+            </a>
+        </div>
     </div>
     <div class="mt-3">
         <?php flashMessage('offer_message'); ?>
     </div>
     <?php foreach($data['offers'] as $offer): ?>
-        <div class="card my-3">
+        <div class="card my-3 bg-light">
             <div class="card-body">
                 <div class="card-title d-flex align-items-end">
                     <h3 class="mb-0"><?= $offer->title; ?></h3>
@@ -21,7 +23,6 @@
                         <span class="font-weight-bold">View</span>
                     </a> 
                 </div>
-                <p class="card-text"><?= $offer->description; ?></p>
                 <div class="card-text d-flex justify-content-between">
                     <p>Posted by: <?= $offer->name; ?></p>
                 </div>

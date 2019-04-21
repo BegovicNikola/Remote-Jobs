@@ -15,12 +15,10 @@
         }
 
         public function index(){
-            // vraca html stranu
             $this->view('admin/index');
         }
 
         public function users(){
-            // vraca json sa userima
             $users = $this->userModel->findAllUsers();
 
             json($users);
